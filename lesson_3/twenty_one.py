@@ -61,7 +61,7 @@ def calculate_low_hand(hand):
 def bust(hand):
     return calculate_hand(hand) > 21
 
-def print_player_hand(hand, name):
+def print_player_hand(hand, name = "you"):
     if name.casefold() == "you":
         verb = "have"
     else:
@@ -121,7 +121,7 @@ player_hand = deal_hand(deck)
 dealer_hand = deal_hand(deck)
 
 print_dealer_hand(dealer_hand)
-print_player_hand(player_hand, "Sofia")
+print_player_hand(player_hand)
 print("\n")
 
 while calculate_low_hand(player_hand) < 21 and calculate_hand(player_hand) != 21:
@@ -131,7 +131,7 @@ while calculate_low_hand(player_hand) < 21 and calculate_hand(player_hand) != 21
         case 's':
             break
     print("\n")
-    print_player_hand(player_hand, "Sofia")
+    print_player_hand(player_hand)
 
 if bust(player_hand):
     print("\nOh no, you've busted! Game over.")
@@ -152,5 +152,5 @@ else:
                 print(f"\nIt's a tie! You both have {get_final_score(player_hand)} points!")
 
 print("\nFinal hands:")
-print_player_hand(player_hand, "Sofia")
+print_player_hand(player_hand)
 print_player_hand(dealer_hand, "Dealer")
